@@ -37,6 +37,9 @@ setMethod("initialize", "Rasch",
 #'@export
 setValidity("Rasch", function(object){
   test1 <- (length(object@a) == length(object@y))
+  test2 <- is.element(FALSE,(sapply(object@y, function(x) if(x==1 | x==0){TRUE} else{FALSE})))
   if(!test1){return("a and y must be the same length")}
+  if(test2){return("y must be a vector of 0 and 1, with 0 representing a wrong answer and 1 representing a right answer")}
 }
 )
+
