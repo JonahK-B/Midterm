@@ -12,7 +12,7 @@ probability(rasch, theta)
 \item{theta}{a numeric representing a quess at the student's ability level}
 }
 \value{
-Assigns P and PQ to the global environment, where P represents the estimate that a student of the estimated ability would get the question correct, and PQ displays P if the student got the question and 1-P if they did not
+A list containing P and PQ, where P represents the estimate that a student of the estimated ability would get the question correct, and PQ displays P if the student got the question and 1-P if they did not
 }
 \description{
 probability
