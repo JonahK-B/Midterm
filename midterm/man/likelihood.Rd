@@ -4,10 +4,10 @@
 \alias{likelihood}
 \title{likelihood}
 \usage{
-likelihood(rasch, theta)
+likelihood(raschObj, theta)
 }
 \arguments{
-\item{rasch}{a rasch object representing the student in question}
+\item{raschObj}{a rasch object representing the student in question}
 
 \item{theta}{a numeric representing a quess at the student's ability level}
 }

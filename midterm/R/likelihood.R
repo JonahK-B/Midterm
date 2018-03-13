@@ -1,6 +1,6 @@
 #' likelihood
 #'
-#' @param rasch a rasch object representing the student in question
+#' @param raschObj a rasch object representing the student in question
 #' @param theta a numeric representing a quess at the student's ability level
 #'
 #'
@@ -16,14 +16,14 @@
 #' @rdname likelihood
 #' @export
 setGeneric(name="likelihood",
-           def=function(rasch, theta)
+           def=function(raschObj, theta)
            {standardGeneric("likelihood")}
 )
 
 #' @export
 setMethod(f="likelihood",
-          definition=function(rasch, theta){
-            prod(probability(rasch, theta)$PQ)
+          definition=function(raschObj, theta){
+            prod(probability(raschObj, theta)$PQ)
           }
 )
 

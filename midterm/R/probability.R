@@ -1,6 +1,6 @@
 #' probability
 #'
-#' @param rasch a rasch object representing the student in question
+#' @param raschObj a rasch object representing the student in question
 #' @param theta a numeric representing a quess at the student's ability level
 #'
 #'
@@ -15,15 +15,15 @@
 #' @rdname probability
 #' @export
 setGeneric(name="probability",
-           def=function(rasch, theta)
+           def=function(raschObj, theta)
            {standardGeneric("probability")}
 )
 
 #' @export
 setMethod(f="probability",
-          definition=function(rasch, theta){
-            P <- sapply(rasch@a, function(x) ((exp(theta-x))/(1+exp(theta-x))))
-            testgrid <- matrix(c(rasch@y, rasch@a), nrow = 5)
+          definition=function(raschObj, theta){
+            P <- sapply(raschObj@a, function(x) ((exp(theta-x))/(1+exp(theta-x))))
+            testgrid <- matrix(c(raschObj@y, raschObj@a), nrow = 5)
             PQ <- apply(testgrid, 1, function(x) if(x[1]==1){((exp(theta-x[2]))/(1+exp(theta-x[2])))} else{1-((exp(theta-x[2]))/(1+exp(theta-x[2])))})
             return(list("P" = P, "PQ" = PQ))
           }
