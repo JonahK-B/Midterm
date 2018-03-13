@@ -23,9 +23,9 @@ setGeneric(name="probability",
 setMethod(f="probability",
           definition=function(rasch, theta){
             P <- sapply(rasch@a, function(x) ((exp(theta-x))/(1+exp(theta-x))))
-            PQ <- sapply(rasch@y, function(x) if(x==1){((exp(theta-x))/(1+exp(theta-x)))} else{1-((exp(theta-x))/(1+exp(theta-x)))})
+            testgrid <- matrix(c(rasch@y, rasch@a), nrow = 5)
+            PQ <- apply(testgrid, 1, function(x) if(x[1]==1){((exp(theta-x[2]))/(1+exp(theta-x[2])))} else{1-((exp(theta-x[2]))/(1+exp(theta-x[2])))})
             return(list("P" = P, "PQ" = PQ))
           }
 )
-
 
