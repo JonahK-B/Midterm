@@ -23,7 +23,19 @@ setGeneric(name="eap",
 #' @export
 setMethod(f="eap",
           definition=function(raschObj, lower, upper){
-            testInt <- integrate(function(x) x, lower, upper)
+            myBaseNumerator <- function(x) (x*likelihood(raschObj, x)*prior(x))
+            myBaseDenominator <- function(x) (likelihood(raschObj, x)*prior(x))
+            myNumerator <- integrate(myBaseNumerator, lower, upper)
+            myDenominator <- integrate(myBaseDenominator, lower, upper)
+            testInt <- myNumerator$value/myDenominator$value
             return(testInt)
           }
 )
+
+eap(jonah)
+
+myBaseNumerator <- function(x) (x*likelihood(jonah, x)*prior(x))
+myBaseDenominator <- function(x) (likelihood(jonah, x)*prior(x))
+myNumerator <- integrate(myBaseNumerator, -6, 6)
+myDenominator <- integrate(myBaseDenominator, -6, 6)
+testInt <- myNumerator$value/myDenominator$value
