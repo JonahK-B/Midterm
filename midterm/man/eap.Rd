@@ -20,7 +20,9 @@ A best estimate of theta based on the student's test answers
 EAP
 }
 \note{
-none
+This function as written will only return zero, as the numerator is a symmetrical function around zero, 
+with int(f(x)) from (-6,0) equaling -int(f(x)) from (0,6). However, this function is written as Montgomery gave it to us as best as I can tell, 
+and I've checked all of the functions which it calls.
 }
 \examples{
 

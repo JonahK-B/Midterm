@@ -7,7 +7,9 @@
 #'
 #' @return A best estimate of theta based on the student's test answers
 #' @author Jonah Klein-Barton
-#' @note none
+#' @note This function as written will only return zero, as the numerator is a symmetrical function around zero, 
+#' with int(f(x)) from (-6,0) equaling -int(f(x)) from (0,6). However, this function is written as Montgomery gave it to us as best as I can tell, 
+#' and I've checked all of the functions which it calls.
 #' @examples
 #'
 #'jonah = new("Rasch", name = "Jonah", a = c(5,5,5,10,25), y = c(1,1,0,1,0))
@@ -31,4 +33,5 @@ setMethod(f="eap",
             return(expectedAbility)
           }
 )
+
 
