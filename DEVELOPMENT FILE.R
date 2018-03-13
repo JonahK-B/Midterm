@@ -11,9 +11,10 @@ document(current.code)
 
 ##examples
 jonah = new("Rasch", name = "Jonah", a = c(5,5,5,10,15), y = c(1,1,1,0,0))
-probability(jonah, 10)
-likelihood(jonah, 10)
-prior(10)
+probability(jonah, 8)
+likelihood(jonah, 8)
+prior(8)
 eap(jonah)
 print(jonah)
 likelihood(jonah, 0)
+
