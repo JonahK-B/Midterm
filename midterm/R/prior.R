@@ -21,7 +21,7 @@ setGeneric(name="prior",
 #' @export
 setMethod(f="prior",
           definition=function(theta){
-            height <- dnorm(theta,0,3)
+            height <- dnorm(theta,mean=0,sd=3)
             return(height)
           }
 )

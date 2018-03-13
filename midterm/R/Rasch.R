@@ -33,3 +33,10 @@ setMethod("initialize", "Rasch",
             return(value)
           }
 ) 
+
+#'@export
+setValidity("Rasch", function(object){
+  test1 <- (length(object@a) == length(object@y))
+  if(!test1){return("a and y must be the same length")}
+}
+)
